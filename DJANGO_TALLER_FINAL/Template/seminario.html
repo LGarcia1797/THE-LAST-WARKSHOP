@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>listado seminarios</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-success">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">gastronomia</a>
+    
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/seminario">seminario</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/agregarseminario">crear Seminario</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/seminarios"> Json</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/institucion"> Institucion</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    
+    <div class="alert alert-light display-1 text-center">LISTA</div>
+    {% if seminario %}
+    <table class="table table-light   table-striped table-inverse table-responsive container mt-5">
+        <thead class="thead-inverse">
+            <tr>
+                <th>Id</th>
+                <th>Nombre </th>
+                <th>Telefono</th>
+                <th>Institucion</th>
+                <th>Hora y Fecha</th>
+                <th>Estado</th>
+                <th>Observacion</th>
+                <th>Editar</th>
+                <th>Borrar</th>
+                <th>Json</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for seminario in seminario %}
+            <tr>
+                <td>{{ seminario.id}}</td>
+                <td>{{ seminario.nombreR}}</td>
+                <td>{{ seminario.telefono}}</td>
+                <td>{{ seminario.institucion}}</td>
+                <td>{{ seminario.fechareserva}}</td>
+                <td>{{ seminario.estado}}</td>
+                <td>{{seminario.observacion}}</td>
+                <td><a href="/actualizarseminario/{{seminario.id}}" class="btn btn-info btn-5m"><i class="bi bi-pencil"></i></a></td>
+                <td><a href="/eliminarseminario/{{seminario.id}}" class="btn btn-info btn-5m"><i class="bi bi-trash"></i></a></td>
+                <td><a href="/seminario/{{seminario.id}}" class="btn btn-info btn-5m"><i class="bi bi-filetype-json"></i></a></td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+    {% else %}
+    <div class="alert alert-light" role="alert">
+        <strong>ningun seminario encontrado</strong>
+    </div>
+    {% endif %}
+    <div class="container mt-5">
+        <a href="../" class="btn btn-warning ">regresar</a>
+        <a href="../agregarseminario/" class="btn btn-warning float-end">crear seminario</a>
+    </div>
+</body>
+</html>

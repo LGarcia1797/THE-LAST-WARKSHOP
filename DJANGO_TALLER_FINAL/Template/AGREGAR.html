@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>+ seminario</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-success">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">gastronomia</a>
+    
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/seminario">seminario</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/agregarseminario">crear seminario</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/seminarios">lista Json</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/institucion">total Institucion</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <div class="alert alert-light display-1 text-center">crear seminario</div>
+
+    <form method="POST" class="container m-5">
+        <table class="table">
+            {{form.as_table}}
+            {% csrf_token %}
+            <tr>
+                <td colspan=2>
+                    <a href="../seminario" class="btn btn-warning ">seminario</a>
+                    <input type="submit" value="AGREGAR" class="btn btn-warning float-end">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
